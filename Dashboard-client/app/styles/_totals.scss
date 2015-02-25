@@ -1,0 +1,58 @@
+.total-metric {
+  background: #bb79bd;
+  border-radius: 4px;
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding-top: 20px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.current-metric {
+  background: blue;
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding-top: 20px;
+  text-align: center;
+  height: 125px;
+}
+
+.previous-metric {
+  background: orange;
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding-top: 20px;
+  text-align: center;
+  height: 125px;
+}
+
+.difference-metric {
+  background: #00CC00;
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding-top: 20px;
+  text-align: center;
+  height: 125px;
+}
+
+
+.total-metric-value, .current-metric-value, .previous-metric-value, .difference-metric-value {
+  display: block;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 54px;
+  vertical-align: middle;
+}
+
+.total-metric-spinner {
+  display: block;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 44px;
+}
+
+.total-metric-title, .current-metric-title, .previous-metric-title, .difference-metric-title {
+  display: block;
+  font-size: 18px;
+  font-weight: 200;
+}

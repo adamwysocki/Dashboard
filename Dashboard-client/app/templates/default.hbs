@@ -1,0 +1,36 @@
+<section class="main-section full-screen">
+  <div class="row">
+    <div class="large-12 columns">
+      <h2>{{pageTitle}}</h2>
+
+      <p class="panel show-for-medium-up">
+      {{line-chart current=this.content.current previous=this.content.previous}}
+      </p>
+
+      <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-3">
+        <li>
+          <div class="current-metric">
+            <span class="current-metric-value">{{format-number this.content.currentCount}}</spam>
+            <span class="current-metric-title">CURRENT</spam>
+          </div>
+        </li>
+        <li>
+          <div class="previous-metric">
+            <span class="previous-metric-value">{{format-number this.content.previousCount}}</spam>
+            <span class="previous-metric-title">PREVIOUS</spam>
+          </div>
+        </li>
+        <li>
+          <div class="difference-metric">
+            <span class="difference-metric-value">{{format-percentage this.content.difference}}</spam>
+            <span class="difference-metric-title">DIFFERENCE</spam>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<a class="exit-off-canvas"></a>
+
+{{outlet}}

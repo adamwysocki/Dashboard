@@ -1,0 +1,26 @@
+<div class="off-canvas-wrap docs-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    <nav class="tab-bar">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" aria-expanded="false"><span></span></a>
+      </section>
+
+      <section class="right tab-bar-section">
+        <h1 class="title">{{fa-icon "dashboard"}}&nbsp;Dashboard</h1>
+      </section>
+
+    </nav>
+
+    <aside class="left-off-canvas-menu" >
+      <ul class="off-canvas-list">
+        <li><label>Menu</label></li>
+        <li>{{#link-to "sessions"}}Sessions{{/link-to}}</li>
+        <li>{{#link-to "visitors"}}Visitors{{/link-to}}</li>
+        <li>{{#link-to "pageviews"}}Pageviews{{/link-to}}</li>
+      </ul>
+    </aside>
+
+    {{outlet}}
+
+  </div>
+</div>

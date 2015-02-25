@@ -1,0 +1,21 @@
+.line-chart-wrapper {
+    margin-bottom: 40px;
+}
+
+.axis path, .axis line
+{
+  fill: none;
+  stroke: #777;
+  shape-rendering: crispEdges;
+}
+
+.axis text
+{
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.tick
+{
+  stroke-dasharray: 1, 2;
+}
