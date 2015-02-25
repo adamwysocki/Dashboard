@@ -15,4 +15,4 @@ For server setup instructions, see [Dashboard-server/README.md] (Dashboard-serve
 
 ## Dashboard-client
 
-For client setup instructions, see Dashboard-server/README.md
+For client setup instructions, see [Dashboard-client/README.md] (Dashboard-client/README.md)
