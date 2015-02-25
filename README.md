@@ -6,7 +6,7 @@ This dashboard app uses Ember & D3 on the client and Node/Express & Google Analy
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone git@github.com:adamwysocki/Dashboard.git` this repository
 * change into the new directory
 
 ## Dashboard-server
