@@ -11,7 +11,7 @@ This dashboard app uses Ember & D3 on the client and Node/Express & Google Analy
 
 ## Dashboard-server
 
-For server setup instructions, see Dashboard-server/README.md
+For server setup instructions, see [Dashboard-server/README.md] (Dashboard-server/README.md)
 
 ## Dashboard-client
 
