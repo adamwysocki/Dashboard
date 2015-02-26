@@ -1,3 +1,5 @@
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/adamwysocki/Dashboard?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 # Dashboard
 
 This README outlines the details of this Simple Dashboard example app.
