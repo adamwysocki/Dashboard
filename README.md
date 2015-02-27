@@ -2,9 +2,9 @@
 
 # Dashboard
 
-This README outlines the details of this Simple Dashboard example app.
-
 This dashboard app uses Ember & D3 on the client and Node/Express & Google Analytics API on the server to display a simple chart that displays sessions, users, and pageviews
+
+![Dashboard Image](http://media.tumblr.com/434356a1c70ce4e7be192c9105a0e236/tumblr_inline_nkeq2cL88R1rgc5rh.png)
 
 ## Installation
 
