@@ -56,7 +56,7 @@ app.use(function (req, res, next) {
 /**
 * pageviews route
 */
-app.get('/pageviews', function(request, response) {
+app.get('/api/1/pageviews', function(request, response) {
 
   getGoogleData('pageviews', DEFAULT_NUM_DAYS, response);
 
@@ -65,7 +65,7 @@ app.get('/pageviews', function(request, response) {
 /**
 * sessions route
 */
-app.get('/sessions', function(request, response) {
+app.get('/api/1/sessions', function(request, response) {
 
   getGoogleData('sessions', DEFAULT_NUM_DAYS, response);
 
@@ -74,7 +74,7 @@ app.get('/sessions', function(request, response) {
 /**
 * users route
 */
-app.get('/users', function(request, response) {
+app.get('/api/1/users', function(request, response) {
 
   getGoogleData('users', DEFAULT_NUM_DAYS, response);
 

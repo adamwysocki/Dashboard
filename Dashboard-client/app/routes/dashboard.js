@@ -7,7 +7,7 @@ export default Ember.Route.extend({
     return new Ember.RSVP.Promise(function(resolve, reject) {
 
       // setup variables
-      var url       = ENV.APP.API_HOST  + "/" + endpoint,     // API url
+      var url       = ENV.APP.API_HOST  + "/api/1/" + endpoint,     // API url
       parseDate     = d3.time.format("%d-%b-%y").parse, // turns returned dates into D3 date format
       currentCount  = 0,                                // totals
       previousCount = 0,
