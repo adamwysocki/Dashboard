@@ -26,7 +26,7 @@ var app               = express(),
 /**
 * Setup dev environment related items
 */
-if ('development' == env) {
+if ( ('development' == env) || ('testing' == env) ){
   // configure stuff here
   app.set('mode', 'development');
 } else {

@@ -2,6 +2,7 @@
 
 #config
 config.development.json
+config.testing.json
 
 # dependencies
 /node_modules
