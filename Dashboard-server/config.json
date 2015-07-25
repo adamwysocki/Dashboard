@@ -1,6 +1,6 @@
 {
-  "user": "your_email_address@gmail.com",
-  "password": "xxxxxxxx",
-  "id": "xxxxxxxxx",
-  "default_num_days": 30
+  "viewid": "xxxxxxxxxx",
+  "default_num_days": 30,
+  "analytics_email": "xxxxxxxxxxxxxxxxxxxxx@developer.gserviceaccount.com",
+  "pem_file": "MYNEWFILE.pem"
 }

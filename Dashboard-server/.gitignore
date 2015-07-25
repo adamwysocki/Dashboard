@@ -6,3 +6,6 @@ config.testing.json
 
 # dependencies
 /node_modules
+
+# PEM file for google v3 api auth
+MYNEWFILE.pem

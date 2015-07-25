@@ -100,7 +100,6 @@ function getGoogleData(type, numDays, response) {
 
 }
 
-
 /**
 * start the http server.
 */

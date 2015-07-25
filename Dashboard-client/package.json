@@ -27,6 +27,7 @@
     "ember-cli-app-version": "0.3.1",
     "ember-cli-content-security-policy": "0.3.0",
     "ember-cli-dependency-checker": "0.0.7",
+    "ember-cli-font-awesome": "0.0.9",
     "ember-cli-foundation": "0.0.2",
     "ember-cli-foundation-sass": "~1.0.0",
     "ember-cli-ic-ajax": "0.1.1",
@@ -36,8 +37,11 @@
     "ember-cli-uglify": "1.0.1",
     "ember-data": "1.0.0-beta.12",
     "ember-export-application-global": "^1.0.0",
+    "ember-websockets": "0.6.3",
     "express": "^4.8.5",
-    "glob": "^4.0.5",
-    "ember-cli-font-awesome": "0.0.9"
+    "glob": "^4.0.5"
+  },
+  "dependencies": {
+    "ember-sockets": "~0.6.10"
   }
 }

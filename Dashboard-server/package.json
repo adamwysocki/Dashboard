@@ -7,15 +7,16 @@
     "test": "mocha test/test.js"
   },
   "author": "Adam Wysocki",
+  "private": true,
   "license": "BSD",
   "dependencies": {
-    "googleanalytics": "~0.3.7",
-    "util": "~0.10.3",
+    "config.json": "0.0.3",
     "express": "~4.11.2",
-    "promise": "~6.1.0",
-    "moment": "~2.9.0",
+    "googleapis": "^2.1.1",
     "lodash": "~3.3.0",
-    "config.json": "0.0.3"
+    "moment": "~2.9.0",
+    "promise": "~6.1.0",
+    "util": "~0.10.3"
   },
   "devDependencies": {
     "chai": "~1.10.0",

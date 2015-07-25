@@ -18,12 +18,13 @@ You will need the following things properly installed on your computer.
 
 ## Configuration
 
-* Edit config.json 
+* Edit config.json
 * Update your google id and password in order to access google analytics (GA)
 * Update your google analytics (GA) view id for the data that you want to display
 * Your GA view id can be found under Admin->All Website Data->View Settings
 
+(http://www.bentedder.com/server-to-server-authorization-for-google-analytics-api-with-node-js/)
+
 ## Running / Development
 
 * `node dashboard.js`
-

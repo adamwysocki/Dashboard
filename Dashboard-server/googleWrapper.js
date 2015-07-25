@@ -7,15 +7,19 @@
 var app                     = require('./dashboard'),                           // main application
     config                  = require('config.json')('./config.json'),
     _Promise                 = require('promise'),                               // promise module
-    GA                      = require('googleanalytics'),                       // google analytics API module
     _                       = require('lodash'),                                // lodash
-    gaConfig                = {
-                                "user": config.user,
-                                "password": config.password
-                              },
     moment                  = require('moment'),                                // moment for time management
-    googleId                = config.id,                                        // google analytics id
-    ga                      = new GA.GA(gaConfig);                              // setup google analytics api
+    googleViewId            = config.viewid,
+    google                  = require('googleapis'),
+    analytics               = google.analytics('v3');
+
+
+var jwtClient = new google.auth.JWT(
+                           config.analytics_email,
+                           config.pem_file, //wherever you can access this file
+                           null,
+                           ['https://www.googleapis.com/auth/analytics.readonly'] //scope
+);
 
 
 /**
@@ -36,12 +40,10 @@ function googleWrapper() {
       // loop through return data and build an array of JSON objects
       // that have a date & value for the client graph
       for(var x = 0; x < entries.length; x++) {
-        for(var y = 0; y < entries[x].metrics.length; y++) {
-          var datum     = {};
-          datum.date    = moment().subtract(totalNumberOfDays - x, 'days').format('D-MMM-YY'); // format the date
-          datum.value   = entries[x].metrics[y]["ga:" + metric];                               // save the metric value
-          formattedResults.push(datum);                                                        // hang on to the formatted data
-        }
+        var datum     = {};
+        datum.date    = moment().subtract(totalNumberOfDays - x, 'days').format('D-MMM-YY'); // format the date
+        datum.value   = parseInt(entries[x][1]);                               // save the metric value
+        formattedResults.push(datum);                                                        // hang on to the formatted data
       }
 
       // split the data into two arrays - current X days and previous X days with
@@ -65,43 +67,39 @@ function googleWrapper() {
         // cover both periods
         var totalNumberOfDays = numberOfDays * 2;
 
-        // call google login
-        ga.login(function(err, token) {
+        jwtClient.authorize(function(err, tokens) {
 
-          if(err) {
-            console.log('[googleWrapper:compare] ga.login error: ', err);         // log the error
-            reject('[googleWrapper:compare] ga.login error: ' + err);             // reject the promise
-            return;
-          }
-
-          // setup options for the 'get'
-          var options = {
-            'ids':          'ga:' + googleId,
-            'dimensions':   'ga:date',
-            'start-date':   moment().subtract(totalNumberOfDays, 'days').format('YYYY-MM-DD'),
-            'end-date':     'yesterday',
-            'metrics':      'ga:' + metric,
-          };
-
-          // call the 'get'
-          ga.get(options, function(err, entries) {
-
-            // check for error
-            if(err) {
-              console.log('[googleWrapper:current] ga.get error: ', err);         // log the error
-              reject('[googleWrapper:current] ga.get error: ' + err);             // reject the promise
+            if (err) {
+              console.log('[googleWrapper:compare] jwtClient.authorize error: ', err);         // log the error
+              reject('[googleWrapper:compare] jwtClient.authorize error: ' + err);             // reject the promise
               return;
             }
 
-            // format the results
-            var results = formatCompareResults(metric, entries, numberOfDays);
+            analytics.data.ga.get({
+              auth: jwtClient,
+              'ids': 'ga:' + googleViewId,
+              'metrics': 'ga:' + metric,
+              'start-date': moment().subtract(totalNumberOfDays, 'days').format('YYYY-MM-DD'),
+              'end-date': 'yesterday',
+              'dimensions': 'ga:date'
+            }, function(err, response) {
+              // handle the errors (if any)
+              // handle the response
+              if(err) {
+                console.log('[googleWrapper:current] analytics.data.ga.get error: ', err);         // log the error
+                reject('[googleWrapper:current] analytics.data.ga.get error: ' + err);             // reject the promise
+                return;
+              }
 
-            // resolve the promise
-            resolve(results);
+              // format the results
+              var results = formatCompareResults(metric, response.rows, numberOfDays);
 
-          }); // end of get
+              // resolve the promise
+              resolve(results);
 
-        }); // end of login
+            });
+
+        }); // end of authorize
 
       }); // end of Promise
 
